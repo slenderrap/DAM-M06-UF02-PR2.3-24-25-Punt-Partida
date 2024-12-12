@@ -1,4 +1,4 @@
-# Put de prartida pràctica PR2.3 #
+# Punt de prartida pràctica PR2.3 #
 
 Organització del projecte
 
