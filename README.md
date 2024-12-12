@@ -1,4 +1,4 @@
-# Exemple JPA Many To Many #
+# Put de prartida pràctica PR2.3 #
 
 Organització del projecte
 
