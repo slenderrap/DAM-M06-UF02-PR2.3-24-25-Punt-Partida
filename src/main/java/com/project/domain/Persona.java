@@ -8,8 +8,12 @@ import java.util.Set;
 @Entity
 @Table(name = "persones")
 public class Persona implements Serializable {
+    private int personaId;
+    private String dni;
+    private String nom;
+    private String telefon;
+    private String email;
 
-    /*
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -47,5 +51,5 @@ public class Persona implements Serializable {
     public int hashCode() {
         return Long.hashCode(personaId);
     }
-    */
+
 }

@@ -92,4 +92,8 @@ public class Manager {
             factory.close();
         }
     }
+
+    public static Autor addAutor(String nomAutor) {
+        
+    }
 }

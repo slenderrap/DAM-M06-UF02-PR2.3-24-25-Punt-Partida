@@ -8,8 +8,8 @@ import java.util.Set;
 @Entity
 @Table(name = "autors")
 public class Autor implements Serializable {
-  
-    /*
+
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -42,5 +42,5 @@ public class Autor implements Serializable {
     public int hashCode() {
         return Long.hashCode(autorId);
     }
-    */
+
 }

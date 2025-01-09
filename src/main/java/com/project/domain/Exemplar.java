@@ -1,14 +1,23 @@
 package com.project.domain;
 
 import jakarta.persistence.*;
+import jdk.internal.classfile.impl.BlockCodeBuilderImpl;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "exemplars")
 public class Exemplar implements Serializable {
-    /*
+    private int exemplarId;
+    private String codiBarres;
+    private Llibre llibre;
+    private Biblioteca biblioteca;
+    private boolean disponible;
+    private historialPrestecs;
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -47,5 +56,5 @@ public class Exemplar implements Serializable {
     public int hashCode() {
         return Long.hashCode(exemplarId);
     }
-    */
+
 }

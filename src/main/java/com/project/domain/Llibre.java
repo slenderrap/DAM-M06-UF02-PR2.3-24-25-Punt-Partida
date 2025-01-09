@@ -2,13 +2,21 @@ package com.project.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "llibres")
 public class Llibre implements Serializable {
-    /*
+
+    private int llibreId;
+    private String isbn;
+    private String titol;
+    private String editorial;
+    private int anyPublicacio;
+    private ArrayList<Autor> autors;
+    private ArrayList<Exemplar> exemplars;
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -60,5 +68,5 @@ public class Llibre implements Serializable {
     public int hashCode() {
         return Long.hashCode(llibreId);
     }
-    */
+
 }

@@ -7,8 +7,15 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "prestecs")
 public class Prestec implements Serializable {
+    private int prestecId;
+    private Exemplar exemplar;
+    private Persona persona;
+    private String dataPrestec;
+    private String dataRetornPrevista;
+    private String dataRetornReal;
+    private boolean actiu;
 
-    /*
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -51,5 +58,5 @@ public class Prestec implements Serializable {
     public int hashCode() {
         return Long.hashCode(prestecId);
     }
-    */
+
 }
