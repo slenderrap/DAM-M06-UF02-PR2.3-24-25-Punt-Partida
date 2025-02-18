@@ -4,25 +4,32 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "biblioteques")
 public class Biblioteca implements Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bibliotecaId;
     private String nom;
     private String ciutat;
     private String adreca;
     private String telefon;
     private String email;
-    private ArrayList<Exemplar> exemplars;
+    @OneToMany(mappedBy = "biblioteca", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<Exemplar> exemplars = new ArrayList<>();
 
+    public Biblioteca() {
+    }
 
-    public Biblioteca(int bibliotecaId, String nom, String ciutat) {
-        this.bibliotecaId = bibliotecaId;
+    public Biblioteca(String nom, String ciutat, String adreca, String telefon, String email) {
         this.nom = nom;
         this.ciutat = ciutat;
+        this.adreca = adreca;
+        this.telefon = telefon;
+        this.email = email;
     }
 
     public int getBibliotecaId() {
@@ -73,11 +80,11 @@ public class Biblioteca implements Serializable {
         this.email = email;
     }
 
-    public ArrayList<Exemplar> getExemplars() {
+    public List<Exemplar> getExemplars() {
         return exemplars;
     }
 
-    public void setExemplars(ArrayList<Exemplar> exemplars) {
+    public void setExemplars(List<Exemplar> exemplars) {
         this.exemplars = exemplars;
     }
 

@@ -37,7 +37,7 @@ public class Main {
         Autor autorOrwell = Manager.addAutor("George Orwell");
         Autor autorWoolf = Manager.addAutor("Virginia Woolf");
 
-        /*
+
         // Comprovem que s'han creat els autors
         @SuppressWarnings("unchecked")
         Collection<Autor> autors = (Collection<Autor>) Manager.listCollection(Autor.class);
@@ -45,6 +45,7 @@ public class Main {
         System.out.println(Manager.collectionToString(Autor.class, autors));
 
         // 4. Creem els llibres
+
         System.out.println("\n=== Creant llibres ===");
         Llibre llibre100 = Manager.addLlibre(
             "978-0307474728", "Cien años de soledad",
@@ -145,6 +146,7 @@ public class Main {
             avui.minusDays(20), avui.minusDays(5));
         Manager.registrarRetornPrestec(prestec3.getPrestecId(), avui.minusDays(7));
 
+        System.out.println(llibre100);
         // Comprovem l'estat dels préstecs
         @SuppressWarnings("unchecked")
         Collection<Prestec> prestecs = (Collection<Prestec>) Manager.listCollection(Prestec.class);
@@ -153,7 +155,7 @@ public class Main {
 
         // 10. Realitzem les consultes demanades
         System.out.println("\n=== Execució de les consultes específiques ===");
-        
+
         System.out.println("\nConsulta 1: Llibres amb els seus autors");
         List<Llibre> llibresAmbAutors = Manager.findLlibresAmbAutors();
         System.out.println(Manager.collectionToString(Llibre.class, llibresAmbAutors));
@@ -165,11 +167,13 @@ public class Main {
         System.out.println("\nConsulta 3: Llibres i les seves biblioteques");
         List<Object[]> llibresBiblios = Manager.findLlibresAmbBiblioteques();
         System.out.println(Manager.formatMultipleResult(llibresBiblios));
-        */
+
 
         // 11. Tanquem la connexió
         System.out.println("\n=== Finalitzant el programa ===");
         Manager.close();
         System.out.println("Connexió tancada. Programa finalitzat.");
+
+
     }
 }

@@ -3,18 +3,90 @@ package com.project.domain;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table(name = "prestecs")
 public class Prestec implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int prestecId;
+    @ManyToOne
+    @JoinColumn(name = "exemplar_id")
     private Exemplar exemplar;
+    @ManyToOne
+    @JoinColumn(name = "persona_id",nullable = false)
     private Persona persona;
-    private String dataPrestec;
-    private String dataRetornPrevista;
-    private String dataRetornReal;
-    private boolean actiu;
+    private LocalDate dataPrestec;
+    private LocalDate dataRetornPrevista;
+    private LocalDate dataRetornReal;
+    private boolean actiu= true;
 
+    public Prestec() {
+    }
+
+    public Prestec(Exemplar exemplar, Persona persona, LocalDate dataPrestec, LocalDate dataRetornPrevista) {
+        this.exemplar = exemplar;
+        this.persona = persona;
+        this.dataPrestec = dataPrestec;
+        this.dataRetornPrevista = dataRetornPrevista;
+    }
+
+    public int getPrestecId() {
+        return prestecId;
+    }
+
+    public void setPrestecId(int prestecId) {
+        this.prestecId = prestecId;
+    }
+
+    public Exemplar getExemplar() {
+        return exemplar;
+    }
+
+    public void setExemplar(Exemplar exemplar) {
+        this.exemplar = exemplar;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    public LocalDate getDataPrestec() {
+        return dataPrestec;
+    }
+
+    public void setDataPrestec(LocalDate dataPrestec) {
+        this.dataPrestec = dataPrestec;
+    }
+
+    public LocalDate getDataRetornPrevista() {
+        return dataRetornPrevista;
+    }
+
+    public void setDataRetornPrevista(LocalDate dataRetornPrevista) {
+        this.dataRetornPrevista = dataRetornPrevista;
+    }
+
+    public LocalDate getDataRetornReal() {
+        return dataRetornReal;
+    }
+
+    public void setDataRetornReal(LocalDate dataRetornReal) {
+        this.dataRetornReal = dataRetornReal;
+    }
+
+    public boolean isActiu() {
+        return actiu;
+    }
+
+    public void setActiu(boolean actiu) {
+        this.actiu = actiu;
+    }
 
     @Override
     public String toString() {
@@ -44,6 +116,19 @@ public class Prestec implements Serializable {
         
         sb.append("]");
         return sb.toString();
+    }
+
+    private int getDiesRetard() {
+        Period retard = dataRetornPrevista.until(LocalDate.now());
+        return retard.getDays();
+    }
+
+    private boolean estaRetardat() {
+        if(LocalDate.now().isAfter(getDataRetornPrevista())){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
